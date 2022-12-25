@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: expenses_types
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  creator_id :bigint           not null
+#
+# Indexes
+#
+#  index_expenses_types_on_creator_id  (creator_id)
+#
+class ExpensesType < ApplicationRecord
+  belongs_to :creator, class_name: 'User', foreign_key: "creator_id"
+  has_many :expenses
+end
