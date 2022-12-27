@@ -80,6 +80,5 @@ gem 'sendgrid-ruby'
 
 gem 'hotwire-rails', '~> 0.1.3'
 
-gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'pry', '~> 0.13.1'
