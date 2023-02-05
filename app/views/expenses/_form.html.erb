@@ -1,19 +1,15 @@
-
-  <%= form_with(model: expense) do |form| %>
-  <div class="grid grid-cols-4 gap-1">
-      <div>
+<%= turbo_frame_tag "expense-form" do %> 
+  <%= form_with(model: expense) do |form|%>
+    <div class="row">
+      <div class="col-3">
         <%= form.text_field :particular, class: "form-control" %>
       </div>
-      <div>
-        <%= form.text_field :amount, class: "form-control" %>
-      </div>
-      <div>
-        <%= form.text_field :remark, class: "form-control" %>
-      </div>
-      <div class="inline">
+      <div class="col-3"><%= form.text_field :amount, class: "form-control" %></div>
+      <div class="col-3"><%= form.text_field :remark, class: "form-control" %></div>
+      <div class="col-3">
         <%= form.submit class: "btn btn-dark" %>
-      </div>  
-    <div>
-  </div>
-</div>
+        <%= link_to  "Cancel", expenses_path, {class: "btn btn-dark"} %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

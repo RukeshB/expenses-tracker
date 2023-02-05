@@ -1,22 +1,31 @@
-<div class="w-full">
-  <div class="items-center">
-    <h1 class="font-bold text-4xl">Expenses</h1>
+<style>
+  .heading {
+    text-align: center;
+  }
+
+  .table-head {
+    font-weight: bold;
+  }
+</style>
+
+<div>
+  <div>
+    <h1>Expenses</h1>
   </div>
-  <div class="min-w-full my-8 w-full">
+  <div style= "width: 100%;">
 
     <%= link_to "New expense", new_expense_path, data: { turbo_frame: "new-expense" } %>
-    <%= turbo_frame_tag "new-expense" do %>
-        <%= link_to "test New expense", new_expense_path %>
-      <% end %>
-    <div class="grid grid-cols-4 gap-1">
-      <div>Particular</div>
-      <div>Amount</div>
-      <div>Remark</div>
-      <div>Action</div>
+    <div class="row table-head">
+      <div class="col-3">Particular</div>
+      <div class="col-3">Amount</div>
+      <div class="col-3">Remark</div>
+      <div class="col-3">Action</div>
     </div>
     <%= turbo_frame_tag "new-expense", target: "_top" %>
     <div id="expenses">
-      <%= render 'expense', expenses: @expenses %>
+      <% @expenses.each do |expense| %>
+        <%= render 'expense', expense: expense %>
+      <% end %>
     </div>
   </div>
 </div>
