@@ -1,0 +1,23 @@
+<div class="w-full">
+  <div class="items-center">
+    <h1 class="font-bold text-4xl">Expenses</h1>
+  </div>
+  <div class="min-w-full my-8 w-full">
+
+    <%= link_to "New expense", new_expense_path, data: { turbo_frame: "new-expense" } %>
+    <%= turbo_frame_tag "new-expense" do %>
+        <%= link_to "test New expense", new_expense_path %>
+      <% end %>
+    <div class="grid grid-cols-4 gap-1">
+      <div>Particular</div>
+      <div>Amount</div>
+      <div>Remark</div>
+      <div>Action</div>
+    </div>
+    <%= turbo_frame_tag "new-expense", target: "_top" %>
+    <div id="expenses">
+      <%= render 'expense', expenses: @expenses %>
+    </div>
+  </div>
+</div>
+

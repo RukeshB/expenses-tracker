@@ -1,7 +1,7 @@
 <div class="card text-dark bg-light mb-3" style="max-width: 50%">
   <div class="card-header">Log in</div>
   <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do
     |f| %>
     <div class="mb-3">
       <%= f.label :email, class: "form-label" %><br />
